@@ -67,8 +67,7 @@ class App extends Component {
 
       this.setState((previousState, props) => ({
         todos: updatedTodos,
-        currentTodo: '',
-        errorMessage: ''
+        currentTodo: ''
       }));
     }
   }
@@ -81,7 +80,6 @@ class App extends Component {
           <h2>React Todos</h2>
         </div>
         <div className="Todo-App">
-          {this.state.errorMessage && <span className="error">{this.state.errorMessage}</span>}
           <TodoForm handleInputChange={this.handleInputChange}
                     currentTodo={this.state.currentTodo}
                     handleSubmit={this.handleSubmit} />          
