@@ -1,8 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { toogleTodo, removeTodo } from '../reducer.js'
 
-export const TodoItem = (props) => {
-	const handleToggle = () => props.handleToggle(props.id);
-	const handleRemove = (event) => props.handleRemove(props.id, event);
+const mapStateToProps = (state) => {
+  return {
+    
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return { 
+    toogleTodo: (id) => {
+        return dispatch(toogleTodo(id));
+    },
+    removeTodo: (id) => {
+      return dispatch(removeTodo(id));
+    }
+  };
+};
+
+const TodoItem = (props) => {
+	const handleToggle = () => props.toogleTodo(props.id);
+	const handleRemove = (event) => props.removeTodo(props.id, event);
 	return (
 		<li>
 			<span className="delete-item">
@@ -16,8 +35,7 @@ export const TodoItem = (props) => {
 	)
 }
 
-TodoItem.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	isComplete: React.PropTypes.bool,
-	id: React.PropTypes.number.isRequired
-}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoItem); 
