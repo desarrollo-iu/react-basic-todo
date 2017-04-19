@@ -1,7 +1,7 @@
 import React from 'react'
-import {TodoItem} from './TodoItem'
+import TodoItem from './TodoItem'
 
-export const TodoList = (props) => {
+const TodoList = (props) => {
 	return (
 		<div>
             <ul>
@@ -14,6 +14,4 @@ export const TodoList = (props) => {
 	)
 }
 
-TodoList.propTypes = {
-	todos: React.PropTypes.array.isRequired
-}
+export default TodoList;

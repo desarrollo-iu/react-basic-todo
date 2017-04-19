@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {TodoForm} from './components/TodoForm'
-import {TodoList} from './components/TodoList'
+import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
 class App extends Component {
   constructor(props){

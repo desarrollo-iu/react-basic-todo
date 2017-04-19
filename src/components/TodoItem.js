@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const TodoItem = (props) => {
+const TodoItem = (props) => {
 	const handleToggle = () => props.handleToggle(props.id);
 	const handleRemove = (event) => props.handleRemove(props.id, event);
 	return (
@@ -16,8 +16,4 @@ export const TodoItem = (props) => {
 	)
 }
 
-TodoItem.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	isComplete: React.PropTypes.bool,
-	id: React.PropTypes.number.isRequired
-}
+export default TodoItem;
