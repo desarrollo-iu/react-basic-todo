@@ -4,6 +4,8 @@ import './App.css';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
+import { generateId } from './utils/helpers'
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -92,5 +94,5 @@ class App extends Component {
 
 export default App;
 
-const generateId = () => Math.floor(Math.random()*1000000) 
+ 
 
