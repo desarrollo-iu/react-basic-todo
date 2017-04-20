@@ -2,18 +2,6 @@ import React from 'react'
 import TodoItem from './TodoItem'
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos
-  };
-}
-
-const mapDispatchToProps = dispatch => {
-  return { 
-
-  };
-};
-
 const TodoList = (props) => {
 	return (
 		<div>
@@ -25,6 +13,18 @@ const TodoList = (props) => {
   	</div>
 	)
 }
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return { 
+
+  };
+};
 
 export default connect(
   mapStateToProps,
