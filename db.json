@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "name": "Curso 1",
+      "isComplete": true
+    },
+    {
+      "id": 2,
+      "name": "Curso 2",
+      "isComplete": false
+    },
+    {
+      "id": 3,
+      "name": "Curso 3",
+      "isComplete": false
+    },
+    {
+      "name": "Hola",
+      "isComplete": "true",
+      "id": 4
+    }
+  ]
+}

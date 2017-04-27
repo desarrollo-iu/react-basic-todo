@@ -1,13 +1,38 @@
-import { generateId } from './utils/helpers'
+import { generateId } from './utils/helpers';
+import { loadTodos } from './utils/service';
 
 const types = {
 	ADD_TODO: 'ADD_TODO',
 	TOOGLE_TODO: 'TOOGLE_TODO',
 	REMOVE_TODO: 'REMOVE_TODO',
 	CHANGE_INPUT: 'CHANGE_INPUT',
+  REQUEST_TODOS: 'REQUEST_TODOS',
+  RECIVE_TODOS: 'RECIVE_TODOS',
 }
 
 //***** ACTION CREATORS
+export const requestTodos = () => {
+  return {
+    type: types.REQUEST_TODOS
+  };
+};
+
+export const reciveTodos = (todos) => {
+  return {
+    type: types.RECIVE_TODOS,
+    payload: todos
+  };
+};
+
+export function fetchTodos(){
+  return (dispatch)=>{
+      dispatch(requestTodos());
+      return loadTodos().then((todos)=>{
+        dispatch(reciveTodos(todos));
+      });
+  }
+}
+
 export const addTodo = (text) => {
   return {
     type: types.ADD_TODO,
@@ -59,7 +84,7 @@ export default (state = initialState, action) => {
       todos: updatedTodos
     }
   }
-  if(action.type === types.CHANGE_INPUT) { 
+  if(action.type === types.CHANGE_INPUT) {
     return {
       ...state,
       currentTodo: action.payload
@@ -90,6 +115,19 @@ export default (state = initialState, action) => {
     return {
       ...state,
       todos: updatedTodos
+    }
+  }
+  if(action.type === types.REQUEST_TODOS) {
+
+    return {
+      ...state
+    }
+  }
+  if(action.type === types.RECIVE_TODOS) {
+
+    return {
+      ...state,
+      todos:action.payload
     }
   }
   return state;
